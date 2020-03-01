@@ -58,21 +58,21 @@
     white-space: nowrap;
     font-size: 0.8rem;
     word-spacing: 5px;
-       text-align: left;
+    text-align: left;
 }
 
 #audioPlay {
     width: 80px;
     height: 100%;
     text-align: center;
-    line-height: 66px;
+    line-height: 63px;
     margin: 0 5px 0 0;
     color: #ffffff;
     background: rgba(255, 86, 96, 0.9);
 }
 
 #audioPlay:hover {
-    color: rgba(0, 0, 0, 0.51);
+    transform: scale(1.1);
     transition: all 0.5s;
 }
 
@@ -101,7 +101,7 @@
 
 #audioProgress {
     display: inline-block;
-    width: 100%;
+    width: 110px;
     height: 3px;
     margin: 0 0 5px 0;
     background: #ff4c2f;

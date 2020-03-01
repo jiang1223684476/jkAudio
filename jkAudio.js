@@ -2,19 +2,19 @@ $(function () {
     /**
      * 添加以下代码到html中
      *  <div id="audioContainer">
-                        <audio id="audio" src=""></audio>
-                        <div id="audioPlay" class="fa fa-play"></div>
-                        <div id="audioInfo">
-                            <marquee id="audioName" loop="infinite">JK's Music box</marquee>
-                            <div id="audioControl">
-                                <i id="audioVolumeIcon" class="fa fa-volume-up"></i>
-                                <input id="audioVolume" type="range" value="20" max="100">
-                                <i id="audioNext" class="fa fa-arrow-right"></i>
-                                <i id="audioLoop" class="fa fa-repeat"></i>
-                                <span id="audioProgress">00:00</span>
-                            </div>
-                        </div>
-                    </div>
+     <audio id="audio" src=""></audio>
+     <div id="audioPlay" class="fa fa-play"></div>
+     <div id="audioInfo">
+     <marquee id="audioName" loop="infinite">JK's Music box</marquee>
+     <div id="audioControl">
+     <i id="audioVolumeIcon" class="fa fa-volume-up"></i>
+     <input id="audioVolume" type="range" value="20" max="100">
+     <i id="audioNext" class="fa fa-arrow-right"></i>
+     <i id="audioLoop" class="fa fa-repeat"></i>
+     <span id="audioProgress">00:00</span>
+     </div>
+     </div>
+     </div>
      */
 
     /**
@@ -37,48 +37,61 @@ $(function () {
     let audioName = [
         "Violet Snow -rearrange Ver.-（Cover 結城 アイラ）",
         "Grind Me Down (Jawster Remix)",
-
+        "不可逆リプレイス",
         "The Crunching Rhythm of Chiba “Rakkasei”",
         "Faded Tone “A”",
-
+        "Cloak and Dagger",
         "New Party Member",
         "GARAGE (Main Menu)",
         "canzoni preferite",
         "I Want You",
         "DOA",
         "Devil Trigger",
+        "提尔主题曲(片尾曲)",
+        "雾 缀じた街 ふたつのかげ",
+        "Relax and Reflect",
+        "瑞風~夜~",
+        "The First Town",
     ];
     //歌曲封面
     let audioImage = [
         "http://p1.music.126.net/KEOpJLn0cpkGeSadsg6qQw==/109951163135336778.jpg?param=90y90",
         "https://p2.music.126.net/DwcM7ClereFuViGvbTHqRg==/19129303300302650.jpg?param=90y90",
-
+        "http://p2.music.126.net/TkIxL2uWGVMAmxxd0cI0FA==/2538772348815654.jpg?param=90y90",
         "http://p2.music.126.net/NhZGQ2CoA5sf-o3fOTs-Ng==/109951163940415205.jpg?param=90y90",
         "http://p2.music.126.net/NhZGQ2CoA5sf-o3fOTs-Ng==/109951163940415205.jpg?param=90y90",
-
-
-
+        "http://p1.music.126.net/cGtyjLew7JwUq__YCRd0TA==/2893914605754636.jpg?param=90y90",
         "http://p2.music.126.net/PqYbS_5CmeEm2ldGBEeojg==/19233756904818083.jpg?param=90y90",
         "http://p1.music.126.net/NhZGQ2CoA5sf-o3fOTs-Ng==/109951163940415205.jpg?param=90y90",
         "http://p1.music.126.net/-teyfCB0_9ZXq_G73D4wLA==/109951163738606984.jpg?param=90y90",
         "http://p1.music.126.net/H5-dJW7V9rd7rVM4Xvdq4A==/16587232416991528.jpg?param=90y90",
         "http://p2.music.126.net/e4VoNx1M3q4hOREXKm_e7g==/109951163598090530.jpg?param=90y90",
         "http://p1.music.126.net/NhZGQ2CoA5sf-o3fOTs-Ng==/109951163940415205.jpg?param=90y90",
+        "http://p1.music.126.net/TYLt2XPLhWteveikPDheMw==/3235862722409135.jpg?param=90y90",
+        "http://p2.music.126.net/5_74V6gQtRHHYCiFxmyb6w==/634418209238486.jpg?param=90y90",
+        "http://p1.music.126.net/E9vaKQHlVCFXRGlyRc65Ag==/109951163313516903.jpg?param=90y90",
+        "http://p2.music.126.net/jaCeRbLeeWlit07tjHG2bw==/3263350518690901.jpg?param=90y90",
+        "http://p1.music.126.net/eiOJodIOugVqdk4-wBRcmA==/2394736325356374.jpg?param=90y90",
     ];
     //歌曲链接
     let audioLink = [
         "http://music.163.com/song/media/outer/url?id=536181647.mp3",
         "http://music.163.com/song/media/outer/url?id=493646263.mp3",
-
+        "http://music.163.com/song/media/outer/url?id=29436956.mp3",
         "http://music.163.com/song/media/outer/url?id=1353164041.mp3",
         "http://music.163.com/song/media/outer/url?id=1353160016.mp3",
-
+        "http://music.163.com/song/media/outer/url?id=32063385.mp3",
         "http://music.163.com/song/media/outer/url?id=478731318.mp3",
         "http://music.163.com/song/media/outer/url?id=1353163319.mp3",
         "http://music.163.com/song/media/outer/url?id=1334778977.mp3",
         "http://music.163.com/song/media/outer/url?id=32548920.mp3",
         "http://music.163.com/song/media/outer/url?id=26562724.mp3",
         "http://music.163.com/song/media/outer/url?id=1353163404.mp3",
+        "http://music.163.com/song/media/outer/url?id=29784054.mp3",
+        "http://music.163.com/song/media/outer/url?id=803048.mp3",
+        "http://music.163.com/song/media/outer/url?id=448724081.mp3",
+        "http://music.163.com/song/media/outer/url?id=39122080.mp3",
+        "http://music.163.com/song/media/outer/url?id=26491723.mp3",
     ];
     //歌曲索引为随机链接长度以内的值
     let audioIndex = Math.floor(Math.random() * audioLink.length);
@@ -193,7 +206,7 @@ $(function () {
             //取消循环
             audioDom.loop = false;
             //恢复字体颜色
-            $audioLoop.css({color: "#000000"});
+            $audioLoop.css({color: "inherit"});
         } else {
             //开始循环
             audioDom.loop = true;
@@ -208,8 +221,8 @@ $(function () {
     let m = "0" + 0;
     //进度控制(当歌曲播放进度更新时执行)
     audioDom.ontimeupdate = function () {
-        //(当前歌曲进度/歌曲总进度)*100
-        let progress = (audioDom.currentTime / audioDom.duration) * 100;
+        //(当前歌曲进度/歌曲总进度)*audioProgress元素长度px
+        let progress = (audioDom.currentTime / audioDom.duration) * 110;
         //根据当前进度更改id为audioProgress总长度
         $audioProgress.css({width: `${progress}px`});
 
