@@ -225,14 +225,9 @@ $(function () {
         let progress = (audioDom.currentTime / audioDom.duration) * 110;
         //根据当前进度更改id为audioProgress总长度
         $audioProgress.css({width: `${progress}px`});
-
-        //获取当前歌曲进度
-        let currentTime = Math.floor(audioDom.currentTime);
-        //秒(当前进度-60*60秒过去次数)
-        let s = currentTime - 60 * count60;
-
-        //如果总播放进度等于100
-        if (progress === 100) {
+        
+        //如果总播放进度等于110(audioProgress元素长度px)
+        if (progress === 110) {
             //60秒过去次数清空为0
             count60 = 0;
             //分钟清空为0
@@ -240,6 +235,12 @@ $(function () {
             //加前缀为0
             m = "0" + m;
         }
+
+        //获取当前歌曲进度
+        let currentTime = Math.floor(audioDom.currentTime);
+        //秒(当前进度-60*60秒过去次数)
+        let s = currentTime - 60 * count60;
+
         //如果秒等于60
         if (s === 60) {
             //秒数清空为0
