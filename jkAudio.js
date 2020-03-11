@@ -1,20 +1,23 @@
 $(function () {
     /**
      * 添加以下代码到html中
-     *  <div id="audioContainer">
+     <div id="audioContainer">
      <audio id="audio" src=""></audio>
      <div id="audioPlay" class="fa fa-play"></div>
      <div id="audioInfo">
      <marquee id="audioName" loop="infinite">JK's Music box</marquee>
      <div id="audioControl">
-     <i id="audioVolumeIcon" class="fa fa-volume-up"></i>
+     <div id="audioVolumeIcon" class="fa fa-volume-up"></div>
      <input id="audioVolume" type="range" value="20" max="100">
      <i id="audioNext" class="fa fa-arrow-right"></i>
      <i id="audioLoop" class="fa fa-repeat"></i>
-     <span id="audioProgress">00:00</span>
+     </div>
+     <div id="audioBar">
+     <div id="audioProgress">00:00</div>
      </div>
      </div>
      </div>
+     *
      */
 
     /**
@@ -25,12 +28,14 @@ $(function () {
     let audioDom = document.getElementById("audio");
     //audio标签通过jquery获取
     let $audio = $("audio");
+    let $audioContainer = $("#audioContainer");
     let $audioPlay = $("#audioPlay");
     let $audioName = $("#audioName");
     let $audioNext = $("#audioNext");
     let $audioVolume = $("#audioVolume");
     let $audioVolumeIcon = $("#audioVolumeIcon");
     let $audioLoop = $("#audioLoop");
+    let $audioBar = $("#audioBar");
     let $audioProgress = $("#audioProgress");
 
     //歌曲名
@@ -45,13 +50,19 @@ $(function () {
         "GARAGE (Main Menu)",
         "canzoni preferite",
         "I Want You",
-        "DOA",
+        "Killer",
         "Devil Trigger",
         "提尔主题曲(片尾曲)",
         "雾 缀じた街 ふたつのかげ",
         "Relax and Reflect",
         "瑞風~夜~",
         "The First Town",
+        "One of Episodes",
+        "Any Special Orders? (Tropical Devil Night Remix)",
+        "Walk Like an Egyptian",
+        "吟遊詩人の詩",
+        "Crystalline Chill",
+        "Gently As She Goes",
     ];
     //歌曲封面
     let audioImage = [
@@ -65,13 +76,19 @@ $(function () {
         "http://p1.music.126.net/NhZGQ2CoA5sf-o3fOTs-Ng==/109951163940415205.jpg?param=90y90",
         "http://p1.music.126.net/-teyfCB0_9ZXq_G73D4wLA==/109951163738606984.jpg?param=90y90",
         "http://p1.music.126.net/H5-dJW7V9rd7rVM4Xvdq4A==/16587232416991528.jpg?param=90y90",
-        "http://p2.music.126.net/e4VoNx1M3q4hOREXKm_e7g==/109951163598090530.jpg?param=90y90",
+        "http://p2.music.126.net/40PzLEBqSfPirQbKq9z5cA==/702587930158851.jpg?param=90y90",
         "http://p1.music.126.net/NhZGQ2CoA5sf-o3fOTs-Ng==/109951163940415205.jpg?param=90y90",
         "http://p1.music.126.net/TYLt2XPLhWteveikPDheMw==/3235862722409135.jpg?param=90y90",
         "http://p2.music.126.net/5_74V6gQtRHHYCiFxmyb6w==/634418209238486.jpg?param=90y90",
         "http://p1.music.126.net/E9vaKQHlVCFXRGlyRc65Ag==/109951163313516903.jpg?param=90y90",
         "http://p2.music.126.net/jaCeRbLeeWlit07tjHG2bw==/3263350518690901.jpg?param=90y90",
         "http://p1.music.126.net/eiOJodIOugVqdk4-wBRcmA==/2394736325356374.jpg?param=90y90",
+        "http://p1.music.126.net/Fpp8DVKcIQB_YqPu_kukGg==/4438728441341287.jpg?param=90y90",
+        "http://p1.music.126.net/NhZGQ2CoA5sf-o3fOTs-Ng==/109951163940415205.jpg?param=90y90",
+        "http://p2.music.126.net/juW4YgTBMcYaUn0Xc6E5hA==/2494791883445668.jpg?param=90y90",
+        "http://p1.music.126.net/6Ilt7lAJ-YIpjVrs5D0eIQ==/109951163039883807.jpg?param=90y90",
+        "http://p1.music.126.net/E9vaKQHlVCFXRGlyRc65Ag==/109951163313516903.jpg?param=90y90",
+        "http://p2.music.126.net/NDXGMy0uPxV_vlyS-G9EQA==/829031767386617.jpg?param=90y90",
     ];
     //歌曲链接
     let audioLink = [
@@ -85,13 +102,19 @@ $(function () {
         "http://music.163.com/song/media/outer/url?id=1353163319.mp3",
         "http://music.163.com/song/media/outer/url?id=1334778977.mp3",
         "http://music.163.com/song/media/outer/url?id=32548920.mp3",
-        "http://music.163.com/song/media/outer/url?id=26562724.mp3",
+        "http://music.163.com/song/media/outer/url?id=19290835.mp3",
         "http://music.163.com/song/media/outer/url?id=1353163404.mp3",
         "http://music.163.com/song/media/outer/url?id=29784054.mp3",
         "http://music.163.com/song/media/outer/url?id=803048.mp3",
         "http://music.163.com/song/media/outer/url?id=448724081.mp3",
         "http://music.163.com/song/media/outer/url?id=39122080.mp3",
         "http://music.163.com/song/media/outer/url?id=26491723.mp3",
+        "http://music.163.com/song/media/outer/url?id=692443.mp3",
+        "http://music.163.com/song/media/outer/url?id=1353164042.mp3",
+        "http://music.163.com/song/media/outer/url?id=19556587.mp3",
+        "http://music.163.com/song/media/outer/url?id=511922706.mp3",
+        "http://music.163.com/song/media/outer/url?id=448722044.mp3",
+        "http://music.163.com/song/media/outer/url?id=1000152.mp3",
     ];
     //歌曲索引为随机链接长度以内的值
     let audioIndex = Math.floor(Math.random() * audioLink.length);
@@ -105,8 +128,8 @@ $(function () {
     $audioPlay.click(function () {
         //如果暂停
         if (audioDom.paused) {
-            //更改播放按钮为暂停
-            $audioPlay.attr("class", "fa fa-pause");
+            //隐藏播放按钮
+            $audioPlay.attr("class", "");
             //替换封面
             $audioPlay.css("background-image", `url("${audioImage[audioIndex]}")`);
             //替换歌名
@@ -161,21 +184,25 @@ $(function () {
         audioDom.currentTime = 0;
         //播放音乐
         audioDom.play();
-        //更改播放按钮为暂停
-        $audioPlay.attr("class", "fa fa-pause");
+        //隐藏播放按钮
+        $audioPlay.attr("class", "");
     });
 
     //音量按钮点击
     $audioVolumeIcon.click(function () {
         //显示音量控制条
         $audioVolume.css({display: "inline-block"});
-        //隐藏进度条
-        $audioProgress.css({display: "none"});
+        //隐藏下一首
+        $audioNext.css({display: "none"});
+        //隐藏循环控制
+        $audioLoop.css({display: "none"});
     });
     //音量控制(当音量控制条发生变化时改变)
     $audioVolume.change(function () {
-        //显示进度条
-        $audioProgress.css({display: "inline-block"});
+        //显示下一首
+        $audioNext.css({display: "inline-block"});
+        //显示循环控制
+        $audioLoop.css({display: "inline-block"});
         //隐藏音量控制条
         $audioVolume.css({display: "none"});
         //获取当前音量控制条值
@@ -221,13 +248,22 @@ $(function () {
     let m = "0" + 0;
     //进度控制(当歌曲播放进度更新时执行)
     audioDom.ontimeupdate = function () {
-        //(当前歌曲进度/歌曲总进度)*audioProgress元素长度px
-        let progress = (audioDom.currentTime / audioDom.duration) * 110;
+        //如果$audioContainer元素宽度小于330px
+        if ($audioContainer.width() < 330) {
+            //设置$audioBar元素宽度为110px
+            $audioBar.width(110);
+        } else {
+            //若不小于330px,设置$audioBar元素宽度为100%自适应
+            $audioBar.width("98%");
+        }
+
+        //(当前歌曲进度/歌曲总进度)*$audioBar元素长度
+        let progress = (audioDom.currentTime / audioDom.duration) * $audioBar.width();
         //根据当前进度更改id为audioProgress总长度
         $audioProgress.css({width: `${progress}px`});
-        
-        //如果总播放进度等于110(audioProgress元素长度px)
-        if (progress === 110) {
+
+        //如果总播放进度等于$audioBar元素长度
+        if (progress === $audioBar.width()) {
             //60秒过去次数清空为0
             count60 = 0;
             //分钟清空为0

@@ -5,6 +5,8 @@
     box-shadow: none;
     outline: none;
     background: none;
+    width: 53%;
+    max-width: 100px;
     margin: 0 0 0 -5px;
     padding: 0 0 5px 0;
 }
@@ -37,11 +39,14 @@
 #audioContainer {
     display: flex;
     width: 100%;
-    height: 60px;
+    height: 90px;
     box-shadow: 0 0 5px #000000;
     font-size: 1rem;
-    margin: 20px 0 0;
+    margin: 20px 0;
     transition: all 0.5s;
+    overflow: hidden;
+    line-height: 26px;
+    font-style: italic;
 }
 
 #audioContainer:hover {
@@ -52,32 +57,39 @@
     margin: 0;
 }
 
+#audioContainer marquee {
+
+}
+
+#audioPlay {
+    min-width: 90px;
+    height: 100%;
+    text-align: center;
+    line-height: 90px;
+    margin: 0 5px 0 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    background: url("../img/audioCover.jpg") center center no-repeat;
+}
+
+#audioPlay:hover {
+    transform: scale(0.95);
+    transition: all 0.5s;
+    box-shadow: 0 0 10px #000000;
+}
+
 #audioInfo {
     width: 100%;
+    min-width: 190px;
     height: 100%;
     white-space: nowrap;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     word-spacing: 5px;
     text-align: left;
 }
 
-#audioPlay {
-    width: 80px;
-    height: 100%;
-    text-align: center;
-    line-height: 63px;
-    margin: 0 5px 0 0;
-    color: #ffffff;
-    background: rgba(255, 86, 96, 0.9);
-}
-
-#audioPlay:hover {
-    transform: scale(1.1);
-    transition: all 0.5s;
-}
-
 #audioName {
-    width: 100%;
+    width: 97%;
     font-size: 0.9rem;
 }
 
@@ -86,10 +98,10 @@
 
 #audioVolume {
     display: none;
+    width: 60%;
 }
 
 #audioVolumeIcon {
-
 }
 
 #audioNext {
@@ -99,11 +111,17 @@
 
 }
 
-#audioProgress {
-    display: inline-block;
-    width: 110px;
+#audioBar {
+    width: 98%;
     height: 3px;
-    margin: 0 0 5px 0;
+    margin: 3px 0 0;
+    background: #cdcdcd;
+}
+
+#audioProgress {
+    width: 0;
+    height: 3px;
+    margin: 3px 0 0;
     background: #ff4c2f;
 }
 
